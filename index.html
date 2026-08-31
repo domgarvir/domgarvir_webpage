@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV — Virginia Domínguez-García</title>
+<title>Virginia Domínguez-García</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
     --max: 680px;
   }
   *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
   body{
     margin:0;
     background: var(--bg);
@@ -30,132 +31,187 @@
   }
   a{ color: var(--sage); text-decoration-thickness: 1px; text-underline-offset: 3px; }
   a:hover{ color: var(--ochre); }
-  a:focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
 
-  .wrap{ max-width: var(--max); margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+  }
 
-  .back{ font-size: 0.9rem; display:inline-block; margin-bottom: 2.2rem; }
-
-  h1{
+  header.hero{
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 4.5rem;
+  }
+  .hero-text h1{
     font-family: 'Fraunces', serif;
     font-weight: 500;
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    margin: 0 0 0.3rem;
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+    line-height: 1.08;
+    margin: 0 0 0.9rem;
+    color: var(--ink);
   }
-  .contact{ color: var(--ink-soft); margin: 0 0 0.3rem; }
-  .contact a{ margin-right: 1rem; }
-  .dob{ color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 2.8rem; }
+  .hero-text .role{
+    max-width: 46ch;
+    color: var(--ink-soft);
+    margin: 0 0 1.4rem;
+  }
+  .hero-text .role em{ font-style: italic; color: var(--ink); }
+  .links{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.95rem;
+  }
 
-  h2{
+  .network{ width: 100%; height: auto; }
+  .network circle{ fill: var(--bg); stroke: var(--teal); stroke-width: 1.5; }
+  .network circle.hub{ fill: var(--ochre); stroke: var(--ochre); }
+  .network line{ stroke: var(--sage); stroke-width: 1; opacity: 0.65; }
+
+  section{ margin-bottom: 3.5rem; max-width: var(--max); }
+  section h2{
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-style: italic;
-    font-size: 1.25rem;
-    margin: 2.6rem 0 1rem;
+    font-size: 1.4rem;
+    margin: 0 0 1.1rem;
+    color: var(--ink);
   }
-  h2:first-of-type{ margin-top: 0; }
+  .interests{
+    display:flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .interests li{
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--line);
+  }
+  .interests li:hover{ border-left-color: var(--ochre); }
 
-  .entry{ margin-bottom: 0.95rem; }
-  .entry .when{ color: var(--ink-soft); font-size: 0.92rem; }
-  .entry .what{ margin: 0.1rem 0 0; }
-  .entry .what strong{ font-weight: 600; }
-  .entry cite{ font-style: italic; }
-
-  ul{ padding-left: 1.1rem; margin: 0; }
-  ul li{ margin-bottom: 0.6rem; }
+  .timeline{ border-top: 1px solid var(--line); }
+  .role-row{
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .role-row .when{ color: var(--ink-soft); font-size: 0.92rem; }
+  .role-row .what strong{ font-weight: 600; }
+  .role-row .what .where{ color: var(--ink-soft); }
+  .current .when{ color: var(--ochre); font-weight: 600; }
 
   footer{
-    margin-top: 3rem;
-    padding-top: 1.5rem;
+    max-width: var(--max);
+    padding-top: 2rem;
     border-top: 1px solid var(--line);
     color: var(--ink-soft);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 720px){
+    header.hero{ grid-template-columns: 1fr; }
+    .network{ max-width: 260px; }
+    .role-row{ grid-template-columns: 1fr; gap: 0.2rem; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <a class="back" href="../">&larr; Back</a>
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Virginia Domínguez-García</h1>
+      <p class="role">I study <em>how ecological and biological networks are built, and why some hold together under change.</em> My work sits between statistical physics and network ecology — structural stability, self-organization, and methods for measuring how interaction networks shift over time.</p>
+      <ul class="links">
+        <li><a href="mailto:virginia.dominguez@ebd.csic.es">virginia.dominguez@ebd.csic.es</a></li>
+        <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li><a href="cv/">CV</a></li>
+      </ul>
+    </div>
+    <svg class="network" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g>
+        <line x1="150" y1="120" x2="60" y2="50"/>
+        <line x1="150" y1="120" x2="230" y2="40"/>
+        <line x1="150" y1="120" x2="40" y2="140"/>
+        <line x1="150" y1="120" x2="90" y2="200"/>
+        <line x1="150" y1="120" x2="220" y2="150"/>
+        <line x1="150" y1="120" x2="260" y2="190"/>
+        <line x1="60" y1="50" x2="40" y2="140"/>
+        <line x1="230" y1="40" x2="220" y2="150"/>
+        <line x1="220" y1="150" x2="260" y2="190"/>
+        <line x1="40" y1="140" x2="90" y2="200"/>
+      </g>
+      <g>
+        <circle class="hub" cx="150" cy="120" r="10"/>
+        <circle cx="60" cy="50" r="6"/>
+        <circle cx="230" cy="40" r="6"/>
+        <circle cx="40" cy="140" r="6"/>
+        <circle cx="90" cy="200" r="6"/>
+        <circle cx="220" cy="150" r="6"/>
+        <circle cx="260" cy="190" r="6"/>
+      </g>
+    </svg>
+  </header>
 
-  <h1>CV and contact info</h1>
-  <p class="contact">
-    <a href="mailto:virginia.dominguez@ebd.csic.es">virginia.dominguez@ebd.csic.es</a>
-    <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
-    <a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a>
-  </p>
-  <p class="dob">Born April 30, 1984 · Seville, Spain</p>
+  <section>
+    <h2>Research interests</h2>
+    <ul class="interests">
+      <li>Ecological and biological networks</li>
+      <li>How topology and dynamics interact in these networks</li>
+      <li>Biodiversity and structural stability</li>
+      <li>Self-organization in complex systems</li>
+    </ul>
+  </section>
 
-  <h2>Education</h2>
-  <div class="entry">
-    <div class="when">2010 — 2014</div>
-    <p class="what"><strong>PhD in Physics</strong>, Universidad de Granada. Thesis: <cite>On the Architectural Features of Ecological and Ecological Networks</cite>. Advisor: Miguel A. Muñoz.</p>
-  </div>
-  <div class="entry">
-    <div class="when">2010 — 2011</div>
-    <p class="what"><strong>MSc in Physics and Mathematics</strong>, Universidad de Granada. Thesis: <cite>A dynamical approach to Foodweb assembly</cite>. Advisor: Miguel A. Muñoz.</p>
-  </div>
-  <div class="entry">
-    <div class="when">2002 — 2010</div>
-    <p class="what"><strong>BSc + MSc in Physics</strong>, Universidad de Sevilla.</p>
-  </div>
+  <section>
+    <h2>Positions</h2>
+    <div class="timeline">
+      <div class="role-row current">
+        <div class="when">2025 — now</div>
+        <div class="what"><strong>Emergia Fellow</strong><br><span class="where">Estación Biológica de Doñana, CSIC · funded by Junta de Andalucía</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2024 — 2025</div>
+        <div class="what"><strong>Postdoc, Bartomeus Lab</strong><br><span class="where">Estación Biológica de Doñana, CSIC · SHOWCASE (European project)</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2022 — 2024</div>
+        <div class="what"><strong>Marie Curie Fellow, Bartomeus Lab</strong><br><span class="where">Estación Biológica de Doñana, CSIC</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2021 — 2022</div>
+        <div class="what"><strong>Postdoc, Bartomeus Lab</strong><br><span class="where">Estación Biológica de Doñana, CSIC · Biodiversa Belmont Forum</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2017 — 2021</div>
+        <div class="what"><strong>Postdoc, Biodicée Team</strong><br><span class="where">ISEM, Montpellier · French National Research Agency (ANR)</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2016 — 2017</div>
+        <div class="what"><strong>Postdoc, Statistical Physics Group</strong><br><span class="where">Universidad de Granada</span></div>
+      </div>
+      <div class="role-row">
+        <div class="when">2010 — 2014</div>
+        <div class="what"><strong>PhD in Physics</strong><br><span class="where">Universidad de Granada · advisor Miguel A. Muñoz</span></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Research experience</h2>
-  <div class="entry">
-    <div class="when">May 2025 — now</div>
-    <p class="what"><strong>Emergia Fellow</strong>, Estación Biológica de Doñana, CSIC. Funded by Junta de Andalucía.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Nov 2024 — May 2025</div>
-    <p class="what"><strong>Postdoc</strong>, Bartomeus Lab, Estación Biológica de Doñana, CSIC. Funded by European project SHOWCASE.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Oct 2022 — Nov 2024</div>
-    <p class="what"><strong>Marie Curie Fellow</strong>, Bartomeus Lab, Estación Biológica de Doñana, CSIC. Funded by European Commission MSCA.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Oct 2021 — Oct 2022</div>
-    <p class="what"><strong>Postdoc</strong>, Bartomeus Lab, Estación Biológica de Doñana, CSIC. Funded by the Biodiversa Belmont Forum.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Mar 2017 — Jun 2021</div>
-    <p class="what"><strong>Postdoc</strong>, Biodicée Team, ISEM Montpellier. Funded by the French National Research Agency (ANR).</p>
-  </div>
-  <div class="entry">
-    <div class="when">Feb 2016 — Mar 2017</div>
-    <p class="what"><strong>Postdoc</strong>, Statistical Physics Group, Granada. Funded by Junta de Andalucía.</p>
-  </div>
-  <div class="entry">
-    <div class="when">May — Aug 2014</div>
-    <p class="what">Mobility grant, short stay at the Department of Engineering Mathematics, Bristol University. Advisor: Thilo Gross. Funded by UGR.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Nov 2011</div>
-    <p class="what">Short stay at the Institute for the Physics of Liquids and Biological Systems, Universidad de La Plata, Argentina. Project: Complex Networks and their Applications in Bioinformatics. Funded by Acciones Integradas MICINN–MINCYT.</p>
-  </div>
-  <div class="entry">
-    <div class="when">Sep 2010 — Jan 2015</div>
-    <p class="what">Doctoral Grant (Proyectos de Excelencia de la Junta de Andalucía), Statistical Physics Group, Granada University. Advisor: Miguel A. Muñoz. Funded by Junta de Andalucía.</p>
-  </div>
-
-  <h2>Teaching</h2>
-  <ul>
-    <li>2026 — Coevolución: Interacciones planta-animal, Teacher</li>
-    <li>2024 and 2025 — Introduction to network analysis and modelling, Teacher</li>
-    <li>2016 — 2017 — Thermodynamics, Degree in Physics, Teaching Assistant</li>
-    <li>2013 — 2014 — General Physics, Degree in Mathematics, Teaching Assistant</li>
-    <li>2013 — 2014 — Statistical Physics, Degree in Physics, Teaching Assistant</li>
-    <li>2012 — 2013 — Statistical Physics, Degree in Physics, Teaching Assistant</li>
-    <li>2013 — Statistical Physics (BSc + MSc), Licenciatura en Física, Teaching Assistant</li>
-  </ul>
-
-  <h2>Previous groups</h2>
-  <ul>
-    <li>Biodiversity Dynamics: Interactions and Conservation — University of Montpellier–CNRS</li>
-    <li>Statistical Physics Group — University of Granada</li>
-  </ul>
-
-  <footer>Last update: 2025.</footer>
+  <footer>
+    Sevilla, Spain — <a href="mailto:virginia@ebd.csic.es">get in touch</a>
+  </footer>
 
 </div>
 </body>
