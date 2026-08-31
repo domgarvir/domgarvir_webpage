@@ -98,6 +98,38 @@
   }
   .interests li:hover{ border-left-color: var(--ochre); }
 
+  .projects{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .project-label{
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    margin: 0 0 0.4rem;
+  }
+  .project-link{
+    display: block;
+    border-left: 2px solid var(--ochre);
+    padding: 0.1rem 0 0.1rem 1.1rem;
+    text-decoration: none;
+  }
+  .project-group:nth-child(2) .project-link{ border-left-color: var(--line); }
+  .project-group:nth-child(2) .project-link:hover{ border-left-color: var(--sage); }
+  .project-name{
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .project-link:hover .project-name{ color: var(--ochre); }
+  .project-desc{
+    display: block;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
   .timeline{ border-top: 1px solid var(--line); }
   .role-row{
     display: grid;
@@ -135,8 +167,9 @@
       <p class="role">I study <em>how ecological and biological networks are built, and why some hold together under change.</em> My work sits between statistical physics and network ecology — structural stability, self-organization, and methods for measuring how interaction networks shift over time.</p>
       <ul class="links">
         <li><a href="mailto:virginia.dominguez@ebd.csic.es">virginia.dominguez@ebd.csic.es</a></li>
-        <li><a href="https://scholar.google.com/citations?hl=en&user=N1m85rAAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
         <li><a href="https://www.researchgate.net" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li><a href="#projects-section">Research projects</a></li>
         <li><a href="cv/">CV</a></li>
       </ul>
     </div>
@@ -173,6 +206,26 @@
       <li>Biodiversity and structural stability</li>
       <li>Self-organization in complex systems</li>
     </ul>
+  </section>
+
+  <section id="projects-section">
+    <h2>Research projects</h2>
+    <div class="projects">
+      <div class="project-group">
+        <p class="project-label">Current</p>
+        <a class="project-link" href="proyectos/pesca/">
+          <span class="project-name">PESCA</span>
+          <span class="project-desc">Ecological Communities' Integral Assessment of Stability</span>
+        </a>
+      </div>
+      <div class="project-group">
+        <p class="project-label">Past</p>
+        <a class="project-link" href="proyectos/polis/">
+          <span class="project-name">PoliS</span>
+          <span class="project-desc">Stability of plant-pollinator communities, Doñana</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <section>
